@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppGorilla.Datos1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Style="{StaticResource CardStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Photo}" Grid.Column="0"/>
+                <StackLayout
+                    Spacing="0"
+                    Padding=".4"
+                        Grid.Column="1">
+                    <Label Text="{Binding Name}"
+                    Style="{StaticResource NameStyle}"/>
+                    <Label Text="{Binding Version}"
+                       Style="{StaticResource AgeStyle}" />
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

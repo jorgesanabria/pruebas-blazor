@@ -1,0 +1,30 @@
+﻿@page "/amiibo/{Nombre}"
+@using Models
+@inject HttpClient Http
+@if (Amiibo != null)
+{
+    <div class="card mb-3 animated fadeIn" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="@Amiibo.image" class="card-img" alt="@Amiibo.name">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Amiibo.name</h5>
+                    <p class="card-text">@Amiibo.amiiboSeries</p>
+                    <p class="card-text">@Amiibo.gameSeries</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@functions {
+    [Parameter]
+    string Nombre { get; set; }
+    Amiibo Amiibo { get; set; }
+    protected override async Task OnInitAsync()
+    {
+        var r = await Http.GetJsonAsync<AmiiboList>($"http://www.amiiboapi.com/api/amiibo/?name={Nombre}");
+        Amiibo = r.amiibo.FirstOrDefault();
+    }
+}

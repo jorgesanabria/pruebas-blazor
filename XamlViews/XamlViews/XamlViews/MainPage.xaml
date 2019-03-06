@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamlViews"
+             x:Class="XamlViews.MainPage">
+
+
+    <!--<ActivityIndicator Color="Red" IsRunning="True"/>-->
+    <!--<BoxView Color="Red"/>-->
+    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        --><!--<Button />-->
+        <!--<DatePicker Format="dd/MM/yyyy"/>-->
+        <!--<Picker Title="Selecciona un item" x:Name="Picker">
+            <Picker.Items>
+                <x:String>Uno</x:String>
+                <x:String>dos</x:String>
+                <x:String>tres</x:String>
+            </Picker.Items>
+        </Picker>--><!--
+    </StackLayout>-->
+    <!--<ProgressBar Progress=".75"></ProgressBar>-->
+    <!--<SearchBar></SearchBar>-->
+    <!--<WebView Source="https://google.com"></WebView>-->
+    <!--<StackLayout>
+        <Button CornerRadius="30" WidthRequest="60" HorizontalOptions="Center"></Button>
+    </StackLayout>-->
+    <MasterDetailPage.Master>
+        <local:Maestro></local:Maestro>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <local:Detalle></local:Detalle>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

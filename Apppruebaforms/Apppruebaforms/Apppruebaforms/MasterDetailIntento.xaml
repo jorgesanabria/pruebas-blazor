@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage Title="ghghhg" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Apppruebaforms.MasterDetailIntento"
+                  xmlns:local="clr-namespace:Apppruebaforms">
+    <MasterDetailPage.Master>
+        <local:master/>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <local:detalle/>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

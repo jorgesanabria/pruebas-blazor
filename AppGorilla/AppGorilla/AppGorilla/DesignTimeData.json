@@ -1,0 +1,123 @@
+{
+  "@Global": {
+    "Version": "1.1"
+  },
+  "Datos1.xaml": {
+    "Name": "Emma Watson",
+    "Age": "27",
+    "Photo": "emma2.jpg"
+  },
+  "Listas1.xaml": [
+    {
+      "Name": "Héctor Pérez",
+      "Age": 23,
+      "Photo": "hector.jpg"
+    },
+    {
+      "Name": "Humberto Rodríguez",
+      "Age": 28,
+      "Photo": "humberto.jpg"
+    },
+    {
+      "Name": "Emma Watson",
+      "Age": 26,
+      "Photo": "emma2.jpg"
+    },
+    {
+      "Name": "Emma Stone",
+      "Age": 32,
+      "Photo": "emma3.jpg"
+    },
+    {
+      "Name": "Nohemí Álvarez",
+      "Age": 32,
+      "Photo": "nohemi.jpg"
+    },
+    {
+      "Name": "Nick Fury",
+      "Age": 53,
+      "Photo": "nick.jpg"
+    }
+  ],
+  "TabbedPageDemo.xaml": [
+    {
+      "Name": "Héctor Pérez",
+      "Age": 23,
+      "Photo": "hector.jpg"
+    },
+    {
+      "Name": "Humberto Rodríguez",
+      "Age": 28,
+      "Photo": "humberto.jpg"
+    },
+    {
+      "Name": "Emma Watson",
+      "Age": 26,
+      "Photo": "emma2.jpg"
+    },
+    {
+      "Name": "Emma Stone",
+      "Age": 32,
+      "Photo": "emma3.jpg"
+    },
+    {
+      "Name": "Nohemí Álvarez",
+      "Age": 32,
+      "Photo": "nohemi.jpg"
+    },
+    {
+      "Name": "Nick Fury",
+      "Age": 53,
+      "Photo": "nick.jpg"
+    }
+  ],
+  "Listas2.xaml": {
+    "People*": [
+      {
+        "Key": "E",
+        "Items": [
+          {
+            "Name": "Emma Stone",
+            "Age": 32,
+            "Photo": "emma3.jpg"
+          },
+          {
+            "Name": "Emma Watson",
+            "Age": 26,
+            "Photo": "emma2.jpg"
+          }
+        ]
+      },
+      {
+        "Key": "H",
+        "Items": [
+          {
+            "Name": "Héctor Pérez",
+            "Age": 23,
+            "Photo": "hector.jpg"
+          },
+          {
+            "Name": "Humberto Rodríguez",
+            "Age": 28,
+            "Photo": "humberto.jpg"
+          }
+        ]
+      },
+      {
+        "Key": "N",
+        "Items": [
+          {
+            "Name": "Nick Fury",
+            "Age": 53,
+            "Photo": "nick.jpg"
+          },
+          {
+            "Name": "Nohemí Álvarez",
+            "Age": 32,
+            "Photo": "nohemi.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}

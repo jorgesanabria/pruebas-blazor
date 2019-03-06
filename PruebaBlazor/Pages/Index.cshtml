@@ -1,0 +1,75 @@
+﻿@page "/"
+@using Models
+@inject HttpClient http
+
+<h1 class="text-center text-primary animated fadeIn">
+    Amiibopedia
+    @if (Amiibos == null)
+    {
+        <i class="fas fa-circle-notch fa-spin"></i>
+    }
+</h1>
+
+<div class="row mb-3 animated fadeIn">
+    <div class="col-8">
+        <label class="label">Buscar</label>
+        <input type="text" bind="Busqueda" placeholder="escriba una palabra para buscar y presione Enter..." class="form-control" />
+    </div>
+    <div class="col-4">
+        <label class="label">Cantidad a mostrar</label>
+        <input type="number" class="form-control" value="100" bind="@Take" />
+    </div>
+</div>
+
+<div class="card-columns">
+    @if (Amiibos != null)
+    {
+        @foreach (
+            var amiibo in Amiibos
+            .Where(
+                    x => string.IsNullOrEmpty(Busqueda) ||
+                        (x.name ?? string.Empty)
+                        .ToLower()
+                        .Contains(Busqueda.ToLower()))
+            .OrderBy(x => x.name)
+            .Take(Take))
+        {
+            <div class="card animated fadeIn">
+                <img src="@amiibo.image" class="card-img-top" alt="@amiibo.name">
+                <div class="card-body">
+                    <h5 class="card-title">@amiibo.amiiboSeries</h5>
+                    <p>@amiibo.name</p>
+                </div>
+                <div class="card-body">
+                    <a href="/amiibo/@amiibo.name" class="card-link">Detalle</a>
+                </div>
+            </div>
+        }
+    }
+</div>
+@functions {
+    private string _busqueda;
+    protected string Busqueda
+    {
+        get => _busqueda; set
+        {
+            _busqueda = value;
+            StateHasChanged();
+        }
+    }
+    private int _take = 100;
+    public int Take
+    {
+        get => _take; set
+        {
+            _take = value;
+            StateHasChanged();
+        }
+    }
+    List<Amiibo> Amiibos { get; set; }
+    protected override async Task OnInitAsync()
+    {
+        var r = await http.GetJsonAsync<AmiiboList>("http://www.amiiboapi.com/api/amiibo/");
+        Amiibos = r.amiibo.ToList();
+    }
+}

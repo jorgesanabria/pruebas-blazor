@@ -1,0 +1,123 @@
+﻿<Window x:Class="SistemaFerreteria.MainWindow" WindowState="Maximized"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaFerreteria"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"><Grid>
+        <TabControl>
+            <TabItem Header="Venta Diaria">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+                    <!--<DataGrid Grid.Column="0"  Height="100" Margin="34,34,34,34" VerticalAlignment="Top" HorizontalAlignment="Stretch" Name="Productos"/>-->
+                    <Label Content="Efectivo" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0"/>
+                    <Label Content="Tarjeta" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1"/>
+                    <Label Content="AFIP" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="2"/>
+                    <Label Content="Factura A" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="3"/>
+                    <Label Content="Resumen" FontWeight="Bold" FontSize="20" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="4"/>
+
+                        <DataGrid Name="Efectivo" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Importe" Binding="{Binding Importe}" Width="*"/>
+                                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    <DataGrid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Importe" Width="*"/>
+                            <DataGridTextColumn Header="Hora" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Importe" Width="*"/>
+                            <DataGridTextColumn Header="Hora" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Importe" Width="*"/>
+                            <DataGridTextColumn Header="Hora"  Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5" Name="Resumen">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Importe" Binding="{Binding Importe}" Width="*"/>
+                            <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBox Text="$ 0,0" Grid.Row="2" Grid.Column="0" TextAlignment="Right" Margin="5" Name="IngresoEfectivo" KeyDown="IngresoEfectivo_KeyDown" GotFocus="IngresoEfectivo_GotFocus" LostFocus="IngresoEfectivo_LostFocus" PreviewTextInput="IngresoEfectivo_PreviewTextInput"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="1" TextAlignment="Right" Margin="5"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="2" TextAlignment="Right" Margin="5"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="3" TextAlignment="Right" Margin="5"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Resumen mensual">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Content="Resumen Mensual" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="0"/>
+
+                    <DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{Binding}" Name="ResumenMensual" IsReadOnly="True" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="Mes" Binding="{Binding Mes}"/>
+                            <DataGridTextColumn Width="*" Header="Efectivo" Binding="{Binding Efectivo}"/>
+                            <DataGridTextColumn Width="*" Header="Tarjeta" Binding="{Binding Tarjeta}"/>
+                            <DataGridTextColumn Width="*" Header="AFIP" Binding="{Binding Afip}"/>
+                            <DataGridTextColumn Width="*" Header="Factura A" Binding="{Binding FacturaA}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Resumen anual">
+                
+            </TabItem>
+            <TabItem Header="Pago de proveedores">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Grid.Row="0" Grid.Column="0" Name="PagoProveedores" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Proveedor" Binding="{Binding Proveedor}"/>
+                            <DataGridTextColumn Header="Deuda" Binding="{Binding Deuda}"/>
+                            <DataGridTextColumn Header="Pagar" Binding="{Binding Pagar}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>                
+            </TabItem>
+            <TabItem Header="Alta de proveedores"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

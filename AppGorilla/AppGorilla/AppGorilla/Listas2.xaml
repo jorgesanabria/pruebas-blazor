@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppGorilla.Listas2"
+             xmlns:PlantillaPersona="clr-namespace:AppGorilla" >
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding People}" HasUnevenRows="True" IsGroupingEnabled="True" GroupShortNameBinding="{Binding Key}">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="30">
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                     Padding="10"
+                                     BackgroundColor="Blue">
+                            <Label Text="{Binding Key}" TextColor="White" VerticalOptions="Center"></Label>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <PlantillaPersona:PlantillaPersona></PlantillaPersona:PlantillaPersona>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
