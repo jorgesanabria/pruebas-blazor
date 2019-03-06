@@ -1,0 +1,37 @@
+﻿@page "/civilizations"
+@inherits PruebaBlazor.Base.CivilizationsBase
+<h1>Civilizations of the Age of Empires</h1>
+
+<table class="table table-striped table-bordered table-hover m-2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Army Type</th>
+            <th>bonus</th>
+        </tr>
+    </thead>
+    @if (Civilizations != null)
+    {
+        <tbody>
+            @foreach (var civ in Civilizations)
+            {
+                <tr>
+                    <td>@civ.name</td>
+                    <td>@civ.army_type</td>
+                    <td>@civ.civilization_bonus</td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+            <tr>
+                <td colspan="3">
+                    Cargando...
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+<button class="m-2" onclick="@IrAlInicio">Ir al inicio</button>
